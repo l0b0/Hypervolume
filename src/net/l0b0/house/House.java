@@ -34,7 +34,7 @@ public class House {
 			if (args.length != 0) {
 				house.setHouseMap(args[0]);
 			} else {
-				house.setHouseMap("C:\\Documents and Settings\\vengmark\\workspace\\Greatest two adjacent rooms\\net\\l0b0\\house\\custom test.txt");
+				house.setHouseMap("src/net/l0b0/house/optrip.com test.txt");
 			}
 		} catch (IOException e) {
 			System.out.println("Failed to set map.");
@@ -49,7 +49,7 @@ public class House {
 			String biggestRoom2 = null;
 			//Check each room against the following ones (Should be N*log(N), not N^2)
 			for (String roomName1 : house.getHouseMap().keySet()) {
-				for (String roomName2 : house.getHouseMap().tailMap(roomName1, false).keySet()) {
+				for (String roomName2 : house.getHouseMap().tailMap(roomName1 + "\0").keySet()) { // Hack from http://java.sun.com/j2se/1.5.0/docs/api/java/util/TreeMap.html#tailMap(K)
 					if (house.getHouseMap().get(roomName1).overlaps(house.getHouseMap().get(roomName2))) {
 						System.out.println("Two of the rooms overlap. Something's wrong in the implementation.");
 					}

@@ -5,7 +5,6 @@ package net.l0b0.hypervolume;
 
 
 import junit.framework.TestCase;
-import java.util.*;
 
 import org.junit.After;
 import org.junit.Before;
